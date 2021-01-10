@@ -128,6 +128,10 @@ class Stream_reader:
                             cmdsFound.append(cmd)
                             cmd.disable_checklist()
                             #DEBUG print(cmd.get_name()+ "disabled")
+
+        #flush stream to prevent double reads
+        for input in self.stream.get_stream():
+            self.stream.push_stream() 
         
 
         #finds the highest priority then  most recent cmd in the list.
