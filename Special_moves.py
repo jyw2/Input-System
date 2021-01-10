@@ -7,7 +7,7 @@ class CMD:
        self.targetCmd = targetCmd
        self.priority = priority
 
-    def get_targetCmd(sekf):
+    def get_targetCmd(self):
         return self.targetCmd
 
     def get_priority(self):
@@ -16,12 +16,15 @@ class CMD:
 
 class Input_stream:
     """holds the inputs in memory for reading.
-    a null value means no input"""
+    a None value means no input"""
 
     def __init__(self):
-        self.stream = [null]*10
+        self.stream = [None]*10
         self.beg = 1
         self.end = 0
+    
+    def get_stream(self):
+        return self.stream
         
     def add_input(self,input):
         """adds an input to the array list and shifts the
@@ -31,21 +34,27 @@ class Input_stream:
         self.stream[self.beg] = input
         
         "checks if the beg or end needs to wrap back around the array"
-        if(beg == len(self.stream)):
-            beg = 0
-            end += 1
-        elif(end == len(self.stream)):
-            beg += 1
-            end = 0
+        if(self.beg == len(self.stream)-1):
+            self.beg = 0
+            self.end += 1
+        elif(self.end == len(self.stream)-1):
+            self.beg += 1
+            self.end = 0
         else:
-            beg += 1
-            end += 1
+            self.beg += 1
+            self.end += 1
+
 
 
 
 if __name__ == "__main__":
     inputStream = Input_stream()
-    print(inputStream)
+    for x in range(10):
+        print(str(inputStream.get_stream()))
+        inputStream.add_input(0)
+    print(str(inputStream.get_stream()))
+    inputStream.add_input(1)
+    print(inputStream.get_stream())
 
 
     
