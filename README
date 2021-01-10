@@ -1,5 +1,5 @@
 Input system for 2d fighting games created by Joshua Wong.
-This system is ment to listen for and read special moves
+This system is intended to listen for and read special moves
 in games such as street fighter. 
 
 NOTE!!!:
