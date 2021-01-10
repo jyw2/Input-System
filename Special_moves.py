@@ -22,10 +22,10 @@ class CMD:
         self.checklistPosition += 1
 
     def disable_checklist(self):
-        self.checklist = None
+        self.checklistPosition = None
 
     def reset_checklist(self):
-        self.checklist = 0
+        self.checklistPosition = 0
     
     def get_name (self):
         return self.name
@@ -110,6 +110,10 @@ class Stream_reader:
                     pass
             else:
                 for cmd in self.cmds:
+                    
+                    """DEBUG print("Checking: "+ cmd.get_name())
+                    print(cmd.get_checklistPosition())
+                    print("target position:" + str(len(cmd.get_code())))"""
 
                     #Do nothing if the checklist of the CMD is complete (it has been found) or the final input (button) does not match the code.
                     if cmd.get_checklistPosition() == None or not cmd.get_code()[len(cmd.get_code())-1]==self.stream.get_stream()[self.stream.get_end()]:
@@ -118,10 +122,12 @@ class Stream_reader:
                     #increment the checklist then check if it is complete
                     elif input == cmd.get_code()[cmd.get_checklistPosition()]:
                         cmd.increment_checklistPosition()
+                        #DEBUG print(cmd.get_checklistPosition())
                         #if the checklist is complete add it to cmds found and set its checklist ot NOne
-                        if cmd.get_checklistPosition() == len(cmd.get_code()-1):
+                        if cmd.get_checklistPosition() == len(cmd.get_code()):
                             cmdsFound.append(cmd)
                             cmd.disable_checklist()
+                            #DEBUG print(cmd.get_name()+ "disabled")
         
 
         #finds the highest priority then  most recent cmd in the list.
@@ -130,6 +136,13 @@ class Stream_reader:
         for cmd in cmdsFound:
             if cmd.get_priority() >= maxPriority:
                 cmdOutput = cmd
+
+        #reenable all cmd checklists
+
+        for cmd in self.cmds:
+            cmd.reset_checklist()
+
+
 
         #Print result if cmd found
 

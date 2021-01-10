@@ -31,15 +31,32 @@ frameCount = 1
 
 #test code for stream reader
 
-#Clean input
+# #Clean input FB
+# inputStream.add_input("2")
+# print(str(inputStream.get_stream()))
+# inputStream.add_input("1")
+# print(str(inputStream.get_stream()))
+# inputStream.add_input("4")
+# print(str(inputStream.get_stream()))
+# inputStream.add_input("a")
+# print(str(inputStream.get_stream()))
+
+#Dirty input FB
 inputStream.add_input("2")
+print(str(inputStream.get_stream()))
+inputStream.add_input("4")
 print(str(inputStream.get_stream()))
 inputStream.add_input("1")
 print(str(inputStream.get_stream()))
 inputStream.add_input("4")
 print(str(inputStream.get_stream()))
+inputStream.add_input("1")
+print(str(inputStream.get_stream()))
 inputStream.add_input("a")
 print(str(inputStream.get_stream()))
+
+
+
 
 streamReader.read_stream()
 
