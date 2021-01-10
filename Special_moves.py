@@ -135,6 +135,7 @@ class Stream_reader:
         cmdOutput = None
         for cmd in cmdsFound:
             if cmd.get_priority() >= maxPriority:
+                maxPriority = cmd.get_priority()
                 cmdOutput = cmd
 
         #reenable all cmd checklists
