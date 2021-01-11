@@ -41,38 +41,35 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.KEYDOWN :
-            
-            print ("keydown")
-            # inputStream.add_input(event.key.unicode)
 
-        keys = pygame.key.get_pressed()
+            keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_KP1 ]:
-            inputStream.add_input("1")
+            if keys[pygame.K_KP1 ]:
+                inputStream.add_input("1")
 
-        if keys[pygame.K_KP2 ]:
-            inputStream.add_input("2")
+            elif keys[pygame.K_KP2 ]:
+                inputStream.add_input("2")
 
-        if keys[pygame.K_KP3 ]:
-            inputStream.add_input("3")
+            elif keys[pygame.K_KP3 ]:
+                inputStream.add_input("3")
 
-        if keys[pygame.K_KP4 ]:
-            inputStream.add_input("4")
+            elif keys[pygame.K_KP4 ]:
+                inputStream.add_input("4")
 
-        if keys[pygame.K_KP6 ]:
-            inputStream.add_input("6")
+            elif keys[pygame.K_KP6 ]:
+                inputStream.add_input("6")
 
-        if keys[pygame.K_KP7]:
-            inputStream.add_input("7")
+            elif keys[pygame.K_KP7]:
+                inputStream.add_input("7")
 
-        if keys[pygame.K_KP8 ]:
-            inputStream.add_input("8")
+            elif keys[pygame.K_KP8 ]:
+                inputStream.add_input("8")
 
-        if keys[pygame.K_KP9 ]:
-            inputStream.add_input("9")
+            elif keys[pygame.K_KP9 ]:
+                inputStream.add_input("9")
 
-        if keys[pygame.K_a]:
-            inputStream.add_input("a")
+            elif keys[pygame.K_a]:
+                inputStream.add_input("a")
 
 
 
@@ -81,11 +78,11 @@ while running:
 
     streamReader.read_stream()
 
-    # at 12 frames the input stream gets pushed, after 2 second (120 frames)
+    # at 24 frames the input stream gets pushed, after 4 second (240 frames)
     #the whole stream should be empty [all Nones]
     frameCount += 1
 
-    if frameCount == 12:
+    if frameCount == 24:
         inputStream.push_stream()
         frameCount = 0
 
