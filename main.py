@@ -19,7 +19,7 @@ cmdDragonPunchLeft = Special_moves.CMD(["4","1","2","1","a"],1,"Dragon Punch!")
 cmdArray.append(cmdDragonPunchLeft)
 
 cmdSuperRight = Special_moves.CMD(["2","3","6","2","3","6","a"],2,"Super!")
-cmdArray.append(cmdDragonPunchRight)
+cmdArray.append(cmdSuperRight)
 
 cmdSuperLeft = Special_moves.CMD(["2","1","4","2","1","4","a"],2,"Super!")
 cmdArray.append(cmdSuperLeft)

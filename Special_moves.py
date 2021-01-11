@@ -71,8 +71,7 @@ class Input_stream:
                 self.add_input(None)
                 break
         return
-        
-        self.add_input(None)
+
 
     def get_end(self):
         return self.end
