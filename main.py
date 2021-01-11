@@ -18,10 +18,10 @@ cmdArray.append(cmdDragonPunchRight)
 cmdDragonPunchLeft = Special_moves.CMD(["4","1","2","1","a"],1,"Dragon Punch!")
 cmdArray.append(cmdDragonPunchLeft)
 
-cmdSuperRight = Special_moves.CMD(["2","3","6","2","3","6","a"],2,"Shinku Hadoken!")
+cmdSuperRight = Special_moves.CMD(["2","3","6","2","3","6","a"],2,"Super!")
 cmdArray.append(cmdDragonPunchRight)
 
-cmdSuperLeft = Special_moves.CMD(["2","1","4","2","1","4","a"],2,"Shinku Hadoken!")
+cmdSuperLeft = Special_moves.CMD(["2","1","4","2","1","4","a"],2,"Super!")
 cmdArray.append(cmdSuperLeft)
 
 inputStream = Special_moves.Input_stream()
@@ -30,11 +30,49 @@ streamReader = Special_moves.Stream_reader(inputStream,cmdArray)
 
 frameCount = 1
 
-while True:
+pygame.init()
+win =pygame.display.set_mode((600,600))
+pygame.display.set_caption("Input System")
+
+running = True
+while running:
     for event in pygame.event.get(): 
-        if event.type == pygame.KEYDOWN:
-            print(event.key.unicode)
+
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN :
+            
+            print ("keydown")
             # inputStream.add_input(event.key.unicode)
+
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_KP1 ]:
+            inputStream.add_input("1")
+
+        if keys[pygame.K_KP2 ]:
+            inputStream.add_input("2")
+
+        if keys[pygame.K_KP3 ]:
+            inputStream.add_input("3")
+
+        if keys[pygame.K_KP4 ]:
+            inputStream.add_input("4")
+
+        if keys[pygame.K_KP6 ]:
+            inputStream.add_input("6")
+
+        if keys[pygame.K_KP7]:
+            inputStream.add_input("7")
+
+        if keys[pygame.K_KP8 ]:
+            inputStream.add_input("8")
+
+        if keys[pygame.K_KP9 ]:
+            inputStream.add_input("9")
+
+        if keys[pygame.K_a]:
+            inputStream.add_input("a")
 
 
 
@@ -50,3 +88,5 @@ while True:
     if frameCount == 12:
         inputStream.push_stream()
         frameCount = 0
+
+pygame.quit()
