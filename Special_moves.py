@@ -68,8 +68,9 @@ class Input_stream:
 
         for input in (self.stream):
             if not (input == None):
+                self.add_input(None)
                 break
-            return
+        return
         
         self.add_input(None)
 
@@ -129,9 +130,7 @@ class Stream_reader:
                             cmd.disable_checklist()
                             #DEBUG print(cmd.get_name()+ "disabled")
 
-        #flush stream to prevent double reads
-        for input in self.stream.get_stream():
-            self.stream.push_stream() 
+      
         
 
         #finds the highest priority then  most recent cmd in the list.
@@ -153,6 +152,9 @@ class Stream_reader:
 
         if not (cmdOutput == None):
             print (cmdOutput.get_name())
+              #flush stream to prevent double reads
+            for input in self.stream.get_stream():
+                self.stream.push_stream() 
 
 
         

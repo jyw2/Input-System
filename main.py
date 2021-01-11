@@ -83,10 +83,12 @@ while running:
 
     # at 12 frames the input stream gets pushed, after 2 second (120 frames)
     #the whole stream should be empty [all Nones]
-    frameCount += 0
+    frameCount += 1
 
     if frameCount == 12:
         inputStream.push_stream()
         frameCount = 0
+
+    # print(str(inputStream.get_stream()))
 
 pygame.quit()
