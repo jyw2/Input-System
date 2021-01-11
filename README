@@ -36,5 +36,13 @@ NOTE!!!:
 
 
     How to use:
-        Run main.py and input special moves using the number pad while the pygame "input System" window
+        Run main.py and input special moves using the number pad and "a" key while the pygame "input System" window
         is selected. The special move outputs will be seen in the terminal [not the pygame window].
+
+        Special moves:
+
+            236a or 214a = Fireball
+            6323a or 4121a = Dragon Punch
+            236236a or 214214a = Super 
+
+            
